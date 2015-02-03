@@ -1,0 +1,73 @@
+---
+title: "Class 20150202"
+output: html_document
+---
+iris.melt<-melt(iris, id.var=c("Species"))
+ggplot(iris.melt, aes(facotr(variable), value,grou=Species))+geom_boxplot()
+
+```{r}
+summary(cars)
+```
+
+
+
+
+
+___
+
+attach(su)
+areatable<-table(state,area)
+area<-margin.table(areatable,1)
+areatable
+
+ddply(su,.(state),numcolwise(sum))
+```
+
+
+
+
+ddply(mydata,.(state),numcolwise(sum))
+## To calculate, sum of the numbers of nurses and doctors
+attach(mydata)
+mynurstable<-table(state,nurse)
+nurse<-margin.table(mynurstable,1)
+nurse
+mydocttable<-table(state, doctor)
+doctor<-margin.table(mydocttable,1)
+
+```
+Then, finally I save the data as a saparate data file. 
+```
+
+
+```
+
+state
+---
+newdata$zone[newdata$zone == "North-Central"]<-"na"
+newdata$zone[newdata$zone == "Northwest"]<-"na"
+newdata$zone[newdata$zone == "Northeast"]<-"na"
+newdata$zone[newdata$zone == "South-South"]<-"s"
+newdata$zone[newdata$zone == "Southeast"]<-"s"
+newdata$zone[newdata$zone == "Southwest"]<-"s"
+
+newdata$zone <- as.character(newdata$zone)
+str(newdata)
+newdata<-na.omit(newdata) ## missing data
+finaldata<-subset(mydata, zone == "South-South"|"Southeast"|"Southwest")
+finaldata$zone <- as.factor(finaldata$zone)
+str(finaldata)
+finaldata<-na.omit(finaldata)
+
+
+
+
+
+
+You can also embed plots, for example:
+
+```{r, echo=FALSE}
+plot(cars)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

@@ -1,0 +1,68 @@
+---
+title: '**IDEAL COVERT NETWORKS**'
+author: "Eun Kyong Shin"
+date: "February 3, 2015"
+output:
+  pdf_document:
+    fig_caption: yes
+    fig_height: 3.5
+    fig_width: 4
+---
+##Issues
+- Level of analysis: who gets detected more vs. which network gets detected more
+- How to measure core in observed network: Freezed degree vs. non constraint degree 
+
+___
+##OBSERVED DATA EXAMPLE  
+
+In the following network graphic, detected people are colored in black over the PGK network of the year of 1919.   
+
+```{r}
+att<-read.csv("attributes.csv", header=T)
+pgk<-read.csv("pgk1919Nodes.csv", header=T)
+pgk1919<- as.matrix(read.table("pgk1919.txt"))
+names(att)
+```
+Non-structural/network varaiables in the attribute files are `HOME`, `GENTER`, `KILLED`, `ARREDTED`, `EVENTYEAR`. `HOME` variable describes member's hometwon origin and `EVENTYEAR` variable includes the time of being detected execusion. `EXECUTED` variable is calculated as dummy of the union of `KILLED`  and  `ARREDTED` ignoring the time of being detected.  
+
+```{r eval=FALSE}
+p1919<-network(pgk1919, directed=F)
+att$detected<-as.numeric(att$eventyear==1919)
+kill<-att[,12]
+gplot(p1919, displaylabels=F, arrow=F, vertex.col=kill, displayisolates=FALSE)
+```
+     
+
+**Network attributes of the PGK 1919 network** are described in the following table, with 140 non-isolated nodes.
+
+
+Network attributes|Value
+------------------|----------
+ vertices         | 414
+ directed         | FALSE
+ hyper            | FALSE
+ loops            | FALSE
+ multiple         | FALSE
+ bipartite        | FALSE
+ density          | 0.00936
+
+
+
+   
+**DETECTED PGK MEMBERS 1919**  
+![DETECTED PGK 1919](/Users/eunkyongshin/GitHub/data-viz/r/icn/det1919.png)   
+
+___
+
+
+Degree distribution of the PGK 1919 network is presnted in the following graphic. As isolates are not considered, the Min. is 1 and the Max. is 34 with Mean of 5.114 and Median of 3.00.  
+  
+  
+![Degree Distribution](/Users/eunkyongshin/GitHub/data-viz/r/icn/degreedist.png)  
+
+
+![Degree by detection time](/Users/eunkyongshin/GitHub/data-viz/r/icn/degbyeventyear.png)  
+
+
+![Modularity](/Users/eunkyongshin/GitHub/data-viz/r/icn/communities-size-distribution.png)
+
