@@ -2,7 +2,7 @@
 title: "EUN SHIN DATA VISUALIZATION"
 author: "Eun Kyong Shin"
 date: "February 3, 2015"
-output: html_document
+output: pdf_document
 ---
 ##**TASK** <br>
 The Nigerian Government has committed $1.2 billion USD to achieving the United Nations Millennium Development Goals. Matching grants are given to Local Government Areas (LGAs) for approved projects and programmes geared towards reducing poverty and improving education and health. To promote the use of data in the local planning process, a rigorous, geo-referenced, baseline facility inventory was conducted for the entire country. The objective was to collect data for all of Nigeria’s health, education and water facilities. The result is this online portal, the Nigeria MDG Information System (NMIS).
